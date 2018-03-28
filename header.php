@@ -89,8 +89,16 @@ header("location: http://www.bold.com.br");
 		<?php endif; ?>	
 		</div>
 		
-		<div id="mainNav" class="clearfix">							
-			<?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>		
+		<div id="mainNav" class="clearfix">		
+
+			
+
+			<?php wp_nav_menu( array(
+				'menu_class' => 'sf-menu', 
+				'theme_location' => 'main', 
+				'fallback_cb' => 'default_nav' 
+				)); 
+			?>		
 		</div>	
 							
 	</div>
