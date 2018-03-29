@@ -95,7 +95,8 @@ function ttrust_scripts() {
 	wp_enqueue_script('fitvids', get_bloginfo('template_url').'/js/jquery.fitvids.js', array('jquery'), '1.0', true);
 	wp_enqueue_script('actual', get_bloginfo('template_url').'/js/jquery.actual.min.js', array('jquery'), '1.8.13', true);			
 	
-	wp_enqueue_script('tinynav', get_bloginfo('template_url').'/js/tinynav.min.js', array('jquery'), '1.05', true);		
+	// not using tiny nav now
+	// wp_enqueue_script('tinynav', get_bloginfo('template_url').'/js/tinynav.min.js', array('jquery'), '1.05', true);		
 	
 	wp_enqueue_script('scrollto', get_bloginfo('template_url').'/js/jquery.scrollTo.min.js', array('jquery'), '1.4.6', true);	
 
@@ -342,6 +343,7 @@ remove_action('wp_print_styles', 'pagenavi_stylesheets');
 
 add_theme_support('menus');
 register_nav_menu('main', 'Main Navigation Menu');
+register_nav_menu('primary', 'Primary Menu');
 
 function default_nav() {
 	echo '<ul class="sf-menu clearfix" >';					

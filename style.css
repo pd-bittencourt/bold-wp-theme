@@ -647,8 +647,8 @@ a.action {
 /* Second level+ dropdowns */
 
 #mainNav ul ul {
-	padding: 20px 0px 0 0px !important;
-	margin-top: -10px;
+	padding: 10px 0px !important;
+	/* margin-top: -10px; */
 	background: #fff;	
 	-moz-box-shadow: 0 0px 1px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0px 1px rgba(0,0,0,0.5);
@@ -665,14 +665,16 @@ a.action {
 #mainNav ul ul li {	
 	float: none;
 	background: none;	
-	margin: 0 5px 10px 20px !important;
-	text-align: left;		
+	margin: 0 !important;
+	text-align: left;	
+	display: block;	
 }
 
 #mainNav ul ul li a {
-	padding: 0px 0 10px 0;
+	padding: 10px 20px;
 	font-weight: normal;
 	border: none !important;
+	display: block;
 }
 
 #mainNav ul li.sfHover ul a { color: #7b7b7b!important; }
@@ -2384,7 +2386,26 @@ ol#commentslist {
 	width:75% !important;
 }
 
+#mainNav .sub-menu{
+	position: absolute;
+	display: none;
+	margin-top: 0;
+}
+#mainNav .sub-menu.is-open {
+	display: block;
+	
+}
 
+#mainNav .btn-toggle-menu {
+	display: none;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+	background: #f5821e;
+    color: white;
+	font-weight: 700;
+	cursor: pointer;
+}
 /*//////////////////////////////////////////////////////////////////// 
 //  12 - Media Queries
 ////////////////////////////////////////////////////////////////////*/
@@ -2451,17 +2472,8 @@ ol#commentslist {
 	}		
 }
 
-@media only screen and (max-width: 820px) {
 
-	#mainNav {
-		right: 30px;
-		position: relative;
-		font-size: 13px;
-		top: 4%;
-		height: 34px;
-		margin-top: 24px;
-		display: inline-block;
-	}
+@media only screen and (max-width: 820px) {
 	
 	
 	.contato_area, .form_area {
@@ -2490,6 +2502,8 @@ ol#commentslist {
 	
 	#comments { width: 100%;}
 }
+
+
 
 /*layouts smaller than 700px, iPhone and mobiles*/
 
@@ -2533,18 +2547,77 @@ ol#commentslist {
 		height: auto;		
 		float: left;
 	}	
-	
-	#mainNav .sf-menu {
-		display:none;
+
+	#mainNav .btn-toggle-menu {
+		display: inline-block;
 	}
-	
-	#mainNav .tinynav {
+
+	#mainNav {
+		position: absolute;
+		right: 50%;
+		transform: translate(50%, -50%);
+		font-size: 13px;
+		display: block;
+	}
+
+	#mainNav .menu-menu-1-container{
+		position: absolute;
+		background: #fff;
+		box-shadow: 0 0 0 1px #ccc;
+		top: 40px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	#mainNav li{
+		display: block;
+		margin: 0 20px;
+	}	
+
+	#mainNav li a{
+		display: block;
+		padding: 10px;
+		text-align: center;
+	}
+
+	#mainNav ul ul {
+		padding: 10px 0 0!important;
+		-webkit-box-shadow: 0 -2px 0 -1px rgba(0,0,0,0.3);
+		box-shadow: 0 -2px 0 -1px rgba(0,0,0,0.3);
+	}
+
+	#mainNav ul ul li {
+		margin: 0 !important;
+		text-align: center;
+	}
+
+	#mainNav ul ul li a {
+		padding: 10px 0;
+
+	}
+
+	#mainNav .sub-menu{
+		display: block;
+		position: relative;
+	}
+	#mainNav .responsive-menu {
+		display: none;
+		width: 200px;
+	}
+
+	#mainNav .responsive-menu.is-open {
+		display: block;
+	}
+
+	/* #mainNav .tinynav {
 		display: inline-block;
 		margin: 0 auto;
 		padding: 0 !important;
 		right: 0;
 		-webkit-appearance: none;
-	}		
+	}		 */
+
+	
 
 	/*Home Slideshow ------------------*/	
 	
@@ -2838,11 +2911,23 @@ ol#commentslist {
 		float: none;
 	}	
 	
-	#header #mainNav {			
+	/* #header #mainNav {			
 		position: relative;			
 		display: block;
 		padding-top: 20px;		
 		right: 0;
+	} */
+
+	#mainNav {
+		position: relative;
+		display: block;
+		font-size: 13px;
+		padding-top: 20px;
+		right: 0;
+		transform: none;
+	}
+	#mainNav .menu-menu-1-container {
+		top: 60px;
 	}
 	
 	.home .slideshow .details h2{

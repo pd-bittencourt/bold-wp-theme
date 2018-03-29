@@ -32,12 +32,12 @@ function isMobile(){
 // Mobile Nav
 ///////////////////////////////
 
-function setMobileNav(){
-	jQuery('#mainNav .sf-menu').tinyNav({
-		header: 'MENU',
-	    active: 'current-menu-item'
-	});	
-}
+// function setMobileNav(){
+// 	jQuery('#mainNav .sf-menu').tinyNav({
+// 		header: 'MENU',
+// 	    active: 'current-menu-item'
+// 	});	
+// }
 
 ///////////////////////////////
 // Project Filtering 
@@ -141,30 +141,75 @@ function centerFlexCaption() {
 ///////////////////////////////
 // Sticky Nav
 ///////////////////////////////
+var menuHasChildren = jQuery('.menu-item-has-children');
+var subMenu = jQuery('.sub-menu');
+var btnToggleMenu = jQuery('.btn-toggle-menu');
+var responsiveMenu = jQuery('.responsive-menu');
 
-function initStickyNav() {	
-	if(!stickyNav.hasClass('stuck')){
-		if (jQuery('#stickyNavWrap') != null ) {
-			stickyNav.wrap('<div id="stickyNavWrap" />');
-		}
-		jQuery('#stickyNavWrap').css('height', stickyNav.height() );
-		jQuery('#header .bottom').css('height', stickyNav.height() );
-		stickyNavOffsetTop = stickyNav.offset().top;		
-	}	
-}
-
-function setStickyNav() {
-	jQuery('#stickyNavWrap').css('height', stickyNav.height() );
-	jQuery('#header .bottom').css('height', stickyNav.height() );	
-	var scrollTop = jQuery(window).scrollTop(); // our current vertical position from the top
-	
-	// if we've scrolled more than the navigation, add the 'stuck' class, otherwise remove the class
-	if (scrollTop + topOffest > stickyNavOffsetTop) { 
-		stickyNav.addClass('stuck');
+menuHasChildren.hover( function() { 
+	if(!subMenu.hasClass('is-open')) {
+		subMenu.addClass('is-open');
+		console.log('sucesso!');
 	} else {
-		stickyNav.removeClass('stuck');		
+		subMenu.removeClass('is-open')
 	}
-}
+});
+
+btnToggleMenu.click( function() { 
+	if(!responsiveMenu.hasClass('is-open')) {
+		responsiveMenu.addClass('is-open');
+		console.log('sucesso!');
+	} else {
+		responsiveMenu.removeClass('is-open')
+	}
+});
+
+jQuery(document).click(function(e) {
+	if(!responsiveMenu.is(e.target) && responsiveMenu.hasClass('is-open')) {
+		if (btnToggleMenu.is(e.target)) {
+			console.log('sensacional!!!!');
+		} else {
+			responsiveMenu.removeClass('is-open');
+			console.log('como búfalos')
+		}
+	} 
+}) 
+
+
+
+// function openSubMenu() {	
+// 	if(!menuHasChildren.hasClass('is-open')){
+// 		if (jQuery('#stickyNavWrap') != null ) {
+// 			stickyNav.wrap('<div id="stickyNavWrap" />');
+// 		}
+// 		jQuery('#stickyNavWrap').css('height', stickyNav.height() );
+// 		jQuery('#header .bottom').css('height', stickyNav.height() );
+// 		stickyNavOffsetTop = stickyNav.offset().top;		
+// 	}	
+// }
+// function initStickyNav() {	
+// 	if(!stickyNav.hasClass('stuck')){
+// 		if (jQuery('#stickyNavWrap') != null ) {
+// 			stickyNav.wrap('<div id="stickyNavWrap" />');
+// 		}
+// 		jQuery('#stickyNavWrap').css('height', stickyNav.height() );
+// 		jQuery('#header .bottom').css('height', stickyNav.height() );
+// 		stickyNavOffsetTop = stickyNav.offset().top;		
+// 	}	
+// }
+
+// function setStickyNav() {
+// 	jQuery('#stickyNavWrap').css('height', stickyNav.height() );
+// 	jQuery('#header .bottom').css('height', stickyNav.height() );	
+// 	var scrollTop = jQuery(window).scrollTop(); // our current vertical position from the top
+	
+// 	// if we've scrolled more than the navigation, add the 'stuck' class, otherwise remove the class
+// 	if (scrollTop + topOffest > stickyNavOffsetTop) { 
+// 		stickyNav.addClass('stuck');
+// 	} else {
+// 		stickyNav.removeClass('stuck');		
+// 	}
+// }
 
 ///////////////////////////////
 // Home Slideshow Parallax
@@ -192,8 +237,8 @@ jQuery(window).load(function(){
 	centerFlexCaption();
 	
 	if(!isMobile()){
-		initStickyNav()	
-		setStickyNav();
+		// initStickyNav()	
+		// setStickyNav();
 		homeParallax();	
 	}	
 	
@@ -203,14 +248,14 @@ jQuery(window).load(function(){
 		gridResize();
 		setHomeSlideshowHeight();
 		centerFlexCaption();
-		if(!isMobile()){
-			initStickyNav();
-		}		
+		// if(!isMobile()){
+		// 	initStickyNav();
+		// }		
 	});
 	
 	jQuery(window).scroll(function() {
 		if(!isMobile()){		
-			setStickyNav();
+			// setStickyNav();
 			homeParallax();	
 		}	
 	});
@@ -220,7 +265,7 @@ jQuery(window).load(function(){
 		jQuery.scrollTo("#middle", 1000, { offset:-(jQuery('#header .bottom').height()+topOffest), axis:'y' });
 	});		
 	
-	setMobileNav();	
+	// setMobileNav();	
 	jQuery('img').attr('title','');	
 	
 });

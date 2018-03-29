@@ -90,15 +90,14 @@ header("location: http://www.bold.com.br");
 		</div>
 		
 		<div id="mainNav" class="clearfix">		
-
-			
-
+			<div class="btn-toggle-menu">MENU</div>
 			<?php wp_nav_menu( array(
-				'menu_class' => 'sf-menu', 
-				'theme_location' => 'main', 
-				'fallback_cb' => 'default_nav' 
+				'menu_class' => 'responsive-menu', 
+				'theme_location' => 'primary', 
+				'fallback_cb' => 'default_nav'
 				)); 
 			?>		
+		
 		</div>	
 							
 	</div>
